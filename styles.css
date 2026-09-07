@@ -102,7 +102,7 @@ h1, h2, h3 { min-width: 0; overflow-wrap: anywhere; font-family: var(--font-disp
 .curve-status span { color: var(--color-gold); font-size: var(--text-xs); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .1em; }
 .curve-instruction { margin: 0 0 var(--space-md); color: var(--color-light-soft); font-size: var(--text-xs); text-align: center; }
 .client-closing { position: relative; z-index: var(--z-raised); margin: var(--space-xl) 0 0; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--alpha-gold-30); color: var(--color-light-soft); font-size: var(--text-sm); }
-@keyframes discipline-rise { from { clip-path: inset(12% 0 0 0 round var(--radius-lg)); filter: blur(.35rem); transform: translateY(var(--space-xl)); } to { clip-path: inset(0 0 0 0 round var(--radius-lg)); filter: blur(0); transform: translateY(0); } }
+@keyframes discipline-rise { from { clip-path: inset(12% 0 0 0 round var(--radius-lg)); transform: translateY(var(--space-xl)); } to { clip-path: inset(0 0 0 0 round var(--radius-lg)); transform: translateY(0); } }
 @supports (animation-timeline: view()) {
   .discipline { animation: discipline-rise linear both; animation-timeline: view(); animation-range: entry 5% cover 38%; }
 }
@@ -113,11 +113,10 @@ h1, h2, h3 { min-width: 0; overflow-wrap: anywhere; font-family: var(--font-disp
 .discipline::before { content: ""; position: absolute; inset: 0 0 auto; height: var(--space-3xs); background: var(--discipline); }
 .discipline--influencer { --discipline: var(--color-influencer); }.discipline--tracker { --discipline: var(--color-tracker); }.discipline--commerce { --discipline: var(--color-commerce); }
 .discipline-index { position: absolute; top: var(--space-md); right: var(--space-lg); color: var(--color-paper-3); font-family: var(--font-display); font-size: 5rem; line-height: 1; }
-.discipline-mark { position: relative; display: grid; place-items: center; width: 10rem; min-height: 4rem; margin-bottom: var(--space-xl); padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-md); background: color-mix(in oklch, var(--discipline) 11%, var(--color-paper)); color: var(--discipline); }
-.discipline-mark img { width: 100%; height: auto; }.discipline-mark--type { font-size: var(--text-sm); font-weight: 700; letter-spacing: .08em; }
-.discipline-mark--tracker { width: min(100%, 18rem); min-height: 0; padding: 0; overflow: hidden; background: var(--color-paper); }
-.discipline-mark--tracker img { display: block; aspect-ratio: 934 / 226; object-fit: contain; }
-.discipline-mark--commerce { width: min(100%, 14rem); border: var(--rule-hair) solid color-mix(in oklch, var(--color-commerce) 36%, transparent); background: color-mix(in oklch, var(--color-commerce) 14%, var(--color-paper)); color: color-mix(in oklch, var(--color-commerce) 78%, var(--color-ink)); font-size: var(--text-md); letter-spacing: .11em; }
+.discipline-mark { position: relative; display: grid; place-items: center; width: 10rem; height: 4rem; margin-bottom: var(--space-xl); padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-md); background: color-mix(in oklch, var(--discipline) 11%, var(--color-paper)); color: var(--discipline); }
+.discipline-mark img { display: block; width: 100%; max-height: 2.5rem; object-fit: contain; }.discipline-mark--type { font-size: var(--text-sm); font-weight: 700; letter-spacing: .08em; }
+.discipline-mark--tracker { overflow: hidden; background: var(--color-paper); }
+.discipline-mark--commerce { border: var(--rule-hair) solid color-mix(in oklch, var(--color-commerce) 36%, transparent); background: color-mix(in oklch, var(--color-commerce) 14%, var(--color-paper)); color: color-mix(in oklch, var(--color-commerce) 62%, var(--color-ink)); }
 .discipline h3 { max-width: 18ch; margin-bottom: var(--space-md); font-size: var(--text-xl); font-weight: 600; line-height: 1.12; }
 .discipline p { max-width: 60ch; margin-bottom: 0; color: var(--color-ink-soft); }
 .step-sequence { position: relative; z-index: var(--z-raised); display: grid; gap: var(--space-md); margin: 0; padding: 0; list-style: none; }
