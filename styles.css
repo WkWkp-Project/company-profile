@@ -146,8 +146,22 @@ form { position: relative; z-index: var(--z-raised); display: grid; gap: var(--s
 .submit-button { justify-content: space-between; width: 100%; padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-lg); }
 .submit-button svg { width: 2rem; height: 2rem; padding: var(--space-xs); border-radius: 50%; background: var(--color-dark); color: var(--color-light-ink); }
 .form-status { min-height: 1.5rem; margin: 0; color: var(--color-ink-soft); }.form-status.is-error { color: var(--color-error); }.form-status.is-success { color: var(--color-success); }
-.direct-contact { position: relative; z-index: var(--z-raised); display: grid; gap: var(--space-md); margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
-.direct-contact a { width: fit-content; }
+.direct-contact { position: relative; z-index: var(--z-raised); display: grid; gap: var(--space-xl); margin-top: var(--space-2xl); padding: var(--space-xl); overflow: hidden; border-radius: var(--radius-lg); background: var(--color-dark); color: var(--color-light-ink); box-shadow: 0 var(--space-lg) var(--space-2xl) var(--alpha-dark-18); }
+.direct-contact::before { content: ""; position: absolute; top: 0; right: 0; width: 8rem; height: 8rem; border: var(--rule-hair) solid var(--alpha-gold-30); border-radius: 50%; transform: translate(42%, -48%); pointer-events: none; }
+.direct-contact__head { position: relative; display: grid; gap: var(--space-xs); padding-right: var(--space-xl); }
+.direct-contact__head h3 { margin: 0; color: var(--color-light-ink); font-size: var(--text-xl); font-weight: 600; line-height: 1.12; }
+.direct-contact__head p { margin: 0; color: var(--color-light-soft); font-size: var(--text-sm); }
+.direct-contact__links { display: grid; border-top: var(--rule-hair) solid var(--color-rule-dark); }
+.direct-contact__item { position: relative; display: grid; grid-template-columns: 3rem minmax(0, 1fr) 2rem; align-items: center; gap: var(--space-md); min-height: 5.5rem; padding: var(--space-md) 0; border-bottom: var(--rule-hair) solid var(--color-rule-dark); color: var(--color-light-ink); text-decoration: none; transition: background-color var(--dur-short) var(--ease-out); }
+.direct-contact__icon { display: grid; place-items: center; width: 3rem; height: 3rem; border: var(--rule-hair) solid var(--alpha-gold-52); border-radius: 50%; color: var(--color-gold); transition: transform var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
+.direct-contact__icon svg { width: 1.25rem; height: 1.25rem; }
+.direct-contact__icon--facebook svg { fill: currentColor; stroke: none; }
+.direct-contact__copy { display: grid; min-width: 0; gap: var(--space-3xs); }
+.direct-contact__copy small { color: var(--color-gold); font-size: var(--text-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.direct-contact__copy strong { min-width: 0; color: var(--color-light-ink); font-size: var(--text-base); font-weight: 600; overflow-wrap: anywhere; }
+.direct-contact__copy--email strong { font-size: var(--text-sm); letter-spacing: -.01em; overflow-wrap: normal; }
+.direct-contact__arrow { width: 1.25rem; height: 1.25rem; color: var(--color-gold); transition: transform var(--dur-short) var(--ease-out); }
+.direct-contact__item:active { background: var(--alpha-light-08); }
 .site-footer { display: flex; flex-direction: column; gap: var(--space-md); padding: var(--space-xl) var(--space-lg) max(var(--space-xl), env(safe-area-inset-bottom)); border-top: var(--rule-hair) solid var(--color-rule); background: var(--color-paper-2); font-size: var(--text-sm); }
 .site-footer p { margin: 0; }.site-footer a { width: fit-content; white-space: nowrap; }
 
@@ -187,6 +201,9 @@ form { position: relative; z-index: var(--z-raised); display: grid; gap: var(--s
   .scroll-cue:hover svg { transform: translateY(var(--space-2xs)); }
   .proof-links a:hover { border-color: var(--color-gold); transform: translateY(calc(var(--space-3xs) * -1)); }
   .field input:hover, .field textarea:hover { background: var(--color-paper-2); }
+  .direct-contact__item:hover { background: var(--alpha-light-08); }
+  .direct-contact__item:hover .direct-contact__icon { background: var(--color-gold); color: var(--color-dark); transform: rotate(-8deg); }
+  .direct-contact__item:hover .direct-contact__arrow { transform: translate(var(--space-2xs), calc(var(--space-2xs) * -1)); }
   .curve-card:hover { border-color: var(--alpha-gold-52); }
   .curve-arrow:hover { background: var(--color-dark); transform: translateY(calc(var(--space-3xs) * -1)); }
 }
