@@ -254,6 +254,7 @@ const messages = {
   name: 'กรุณาระบุชื่อผู้ติดต่อ',
   company: 'กรุณาระบุบริษัทหรือแบรนด์',
   email: 'กรุณาระบุอีเมลที่ติดต่อได้',
+  phone: 'กรุณาระบุเบอร์โทรศัพท์ที่ติดต่อได้',
   brief: 'กรุณาเล่าโจทย์ที่อยากคุยโดยย่อ'
 };
 
@@ -261,9 +262,18 @@ function validateField(field) {
   const helper = document.querySelector(`#${field.id}-help`);
   const empty = !field.value.trim();
   const malformedEmail = field.type === 'email' && !field.validity.valid;
-  const valid = !empty && !malformedEmail;
+  const malformedPhone = field.type === 'tel' && !field.validity.valid;
+  const valid = !empty && !malformedEmail && !malformedPhone;
   field.setAttribute('aria-invalid', String(!valid));
-  if (helper) helper.textContent = valid ? '' : malformedEmail && !empty ? 'รูปแบบอีเมลยังไม่ถูกต้อง กรุณาตรวจอีกครั้ง' : messages[field.id];
+  if (helper) {
+    helper.textContent = valid
+      ? ''
+      : malformedEmail && !empty
+        ? 'รูปแบบอีเมลยังไม่ถูกต้อง กรุณาตรวจอีกครั้ง'
+        : malformedPhone && !empty
+          ? 'รูปแบบเบอร์โทรศัพท์ยังไม่ถูกต้อง กรุณาตรวจอีกครั้ง'
+          : messages[field.id];
+  }
   return valid;
 }
 
