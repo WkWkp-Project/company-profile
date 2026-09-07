@@ -2,7 +2,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { overflow-x: clip; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 20rem; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-base); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body { margin: 0; min-width: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-base); line-height: 1.65; -webkit-font-smoothing: antialiased; }
 body, button, input, textarea { font-family: var(--font-body); }
 button, input, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -69,25 +69,42 @@ h1, h2, h3 { min-width: 0; overflow-wrap: anywhere; font-family: var(--font-disp
 .client-stats div { display: grid; place-items: center; align-content: center; min-width: 0; min-height: 10rem; padding: var(--space-lg) var(--space-sm); border: var(--rule-hair) solid var(--alpha-gold-30); border-radius: var(--radius-md); background: var(--color-dark-2); text-align: center; }
 .client-stats dt { color: var(--color-gold); font-family: var(--font-display); font-size: clamp(2.8rem, 13vw, 4.2rem); font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
 .client-stats dd { margin: var(--space-sm) 0 0; color: var(--color-light-soft); font-size: var(--text-xs); font-weight: 700; letter-spacing: .08em; line-height: 1.35; text-transform: uppercase; }
-.client-orbit-stage { position: relative; z-index: var(--z-raised); display: grid; place-items: center; width: 100%; aspect-ratio: 1; margin-block: var(--space-xl); border: var(--rule-hair) solid var(--alpha-gold-30); border-radius: 50%; outline: .125rem solid transparent; outline-offset: var(--space-2xs); background: var(--alpha-gold-14); isolation: isolate; }
-.client-orbit-stage::before, .client-orbit-stage::after { content: ""; position: absolute; z-index: calc(var(--z-base) * -1); background: var(--alpha-gold-14); }
-.client-orbit-stage::before { width: 100%; height: var(--rule-hair); }.client-orbit-stage::after { width: var(--rule-hair); height: 100%; }
-.client-orbit-stage:focus-visible { outline-color: var(--color-gold); }
-.client-orbit-core { position: relative; z-index: var(--z-raised); display: grid; place-items: center; width: 34%; aspect-ratio: 1; border: var(--rule-hair) solid var(--alpha-gold-52); border-radius: 50%; background: var(--color-dark); box-shadow: 0 var(--space-md) var(--space-2xl) var(--alpha-dark-34); text-align: center; }
-.client-orbit-core strong { color: var(--color-gold); font-family: var(--font-display); font-size: clamp(2rem, 11vw, 3.5rem); line-height: .9; }.client-orbit-core span { max-width: 8ch; color: var(--color-light-soft); font-size: var(--text-xs); font-weight: 700; letter-spacing: .08em; line-height: 1.2; text-transform: uppercase; }
-.client-orbit-ring { --orbit-radius: min(35vw, 10.5rem); position: absolute; inset: 7%; border: var(--rule-hair) dashed var(--alpha-gold-30); border-radius: 50%; animation: orbit-turn 38s linear infinite; animation-play-state: paused; }
-.client-orbit-ring--inner { --orbit-radius: min(22vw, 6.5rem); inset: 22%; animation-direction: reverse; animation-duration: 28s; }
-.orbit-client { position: absolute; top: 50%; left: 50%; transform: rotate(calc(360deg / var(--slots) * var(--slot))) translateX(var(--orbit-radius)); transform-origin: 0 0; }
-.orbit-client b { display: block; padding: var(--space-2xs) var(--space-xs); border: var(--rule-hair) solid var(--alpha-gold-30); border-radius: var(--radius-pill); background: var(--color-dark-2); color: var(--color-light-ink); font-family: var(--font-display); font-size: clamp(.62rem, 2.7vw, .82rem); font-weight: 600; line-height: 1; white-space: nowrap; transform: rotate(calc(-360deg / var(--slots) * var(--slot))); animation: orbit-counter 38s linear infinite; animation-play-state: paused; }
-.client-orbit-ring--inner .orbit-client b { animation-direction: reverse; animation-duration: 28s; }
-.client-orbit-stage.is-motion-active .client-orbit-ring, .client-orbit-stage.is-motion-active .orbit-client b { animation-play-state: running; }
-.client-orbit-stage:hover .client-orbit-ring, .client-orbit-stage:hover .orbit-client b, .client-orbit-stage:focus .client-orbit-ring, .client-orbit-stage:focus .orbit-client b { animation-play-state: paused; }
+.client-curve { position: relative; z-index: var(--z-raised); width: 100%; margin-block: var(--space-xl); border-block: var(--rule-hair) solid var(--alpha-gold-30); outline: .125rem solid transparent; outline-offset: var(--space-2xs); touch-action: pan-y; user-select: none; }
+.client-curve:focus-visible { outline-color: var(--color-gold); }
+.curve-viewport { position: relative; height: 23rem; overflow: hidden; cursor: grab; isolation: isolate; }
+.curve-viewport::before { content: ""; position: absolute; z-index: calc(var(--z-base) * -1); top: 1.25rem; left: 50%; width: 180%; height: 32rem; border: var(--rule-hair) solid var(--alpha-gold-30); border-radius: 50%; transform: translateX(-50%); pointer-events: none; }
+.curve-viewport::after { content: ""; position: absolute; z-index: var(--z-raised); top: var(--space-md); bottom: var(--space-xl); left: 50%; width: var(--rule-hair); background: var(--alpha-gold-30); transform: translateX(-50%); pointer-events: none; }
+.client-curve.is-dragging .curve-viewport { cursor: grabbing; }
+.curve-track { position: absolute; inset: 0; }
+.curve-card { --curve-x: 0px; --curve-y: 0px; --curve-r: 0deg; --curve-s: .82; --curve-o: 0; --curve-z: 0; position: absolute; top: var(--space-xl); left: 50%; z-index: var(--curve-z); display: grid; align-content: end; width: clamp(8.5rem, 36vw, 10.5rem); height: 14rem; min-height: 44px; padding: var(--space-lg); overflow: hidden; border: var(--rule-hair) solid var(--color-rule-dark); border-radius: var(--radius-md); outline: .125rem solid transparent; outline-offset: var(--space-2xs); background: var(--color-dark-2); color: var(--color-light-ink); text-align: start; cursor: pointer; opacity: var(--curve-o); transform: translate3d(calc(-50% + var(--curve-x)), var(--curve-y), 0) rotate(var(--curve-r)) scale(var(--curve-s)); transform-origin: 50% 100%; transition: transform var(--dur-long) var(--ease-out), opacity var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out); will-change: transform, opacity; }
+.curve-card::before { content: attr(data-monogram); position: absolute; top: calc(var(--space-md) * -1); right: var(--space-xs); color: var(--alpha-light-08); font-family: var(--font-display); font-size: 8rem; font-weight: 600; line-height: 1; pointer-events: none; }
+.curve-card::after { content: ""; position: absolute; inset: 0 0 auto; height: var(--rule-hair); background: var(--color-gold); opacity: 0; transition: opacity var(--dur-short) var(--ease-out); }
+.curve-card__serial { position: absolute; top: var(--space-md); left: var(--space-md); color: var(--color-gold); font-size: var(--text-xs); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .08em; }
+.curve-card strong { position: relative; max-width: 10ch; font-family: var(--font-display); font-size: clamp(1.25rem, 5vw, var(--text-xl)); font-weight: 600; line-height: 1.04; overflow-wrap: anywhere; }
+.curve-card small { position: relative; margin-top: var(--space-xs); color: var(--color-light-soft); font-size: var(--text-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.curve-card.is-active { border-color: var(--color-gold); background: var(--color-dark); }
+.curve-card.is-active::after { opacity: 1; }
+.curve-card.is-active strong { color: var(--color-gold); }
+.curve-card:focus-visible { outline-color: var(--color-gold); }
+.curve-card:active { background: var(--color-dark); }
+.curve-card:disabled, .client-curve[aria-disabled="true"] .curve-card { opacity: .5; cursor: not-allowed; }
+.client-curve[data-state="loading"] .curve-card { opacity: .35; cursor: wait; }
+.client-curve[data-state="error"] { border-color: var(--color-error); }
+.client-curve[data-state="success"] { border-color: var(--color-success); }
+.curve-controls { position: relative; z-index: var(--z-raised); display: grid; grid-template-columns: 3rem minmax(0, 1fr) 3rem; align-items: center; gap: var(--space-md); padding: var(--space-md) 0; border-top: var(--rule-hair) solid var(--alpha-gold-30); }
+.curve-arrow { display: grid; place-items: center; width: 3rem; height: 3rem; padding: 0; border: var(--rule-hair) solid var(--alpha-gold-52); border-radius: 50%; outline: .125rem solid transparent; outline-offset: var(--space-2xs); background: var(--color-dark-2); color: var(--color-gold); cursor: pointer; transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-short) var(--ease-out); }
+.curve-arrow svg { width: 1.1rem; height: 1.1rem; }
+.curve-arrow:focus-visible { outline-color: var(--color-gold); }
+.curve-arrow:active { background: var(--color-dark); transform: translateY(var(--space-3xs)); }
+.curve-arrow:disabled { opacity: .5; cursor: not-allowed; }
+.curve-status { display: grid; gap: var(--space-2xs); margin: 0; text-align: center; }
+.curve-status strong { color: var(--color-light-ink); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 600; line-height: 1.05; overflow-wrap: anywhere; }
+.curve-status span { color: var(--color-gold); font-size: var(--text-xs); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .1em; }
+.curve-instruction { margin: 0 0 var(--space-md); color: var(--color-light-soft); font-size: var(--text-xs); text-align: center; }
 .client-ledger { position: relative; z-index: var(--z-raised); display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-md); padding-block: var(--space-xl); border-block: var(--rule-hair) solid var(--alpha-gold-30); }
 .client-ledger span { display: inline-flex; align-items: center; gap: var(--space-xs); color: var(--color-light-soft); font-family: var(--font-display); font-size: var(--text-sm); }
 .client-ledger span::before { content: ""; width: var(--space-2xs); height: var(--space-2xs); border-radius: 50%; background: var(--color-gold); }
 .client-closing { position: relative; z-index: var(--z-raised); margin: var(--space-xl) 0 0; padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--alpha-gold-30); color: var(--color-light-soft); font-size: var(--text-sm); }
-@keyframes orbit-turn { to { transform: rotate(1turn); } }
-@keyframes orbit-counter { from { transform: rotate(calc(-360deg / var(--slots) * var(--slot))); } to { transform: rotate(calc(-360deg / var(--slots) * var(--slot) - 1turn)); } }
 @keyframes discipline-rise { from { clip-path: inset(12% 0 0 0 round var(--radius-lg)); filter: blur(.35rem); transform: translateY(var(--space-xl)); } to { clip-path: inset(0 0 0 0 round var(--radius-lg)); filter: blur(0); transform: translateY(0); } }
 @supports (animation-timeline: view()) {
   .discipline { animation: discipline-rise linear both; animation-timeline: view(); animation-range: entry 5% cover 38%; }
@@ -168,13 +185,15 @@ form { position: relative; z-index: var(--z-raised); display: grid; gap: var(--s
   .scroll-cue:hover svg { transform: translateY(var(--space-2xs)); }
   .proof-links a:hover { border-color: var(--color-gold); transform: translateY(calc(var(--space-3xs) * -1)); }
   .field input:hover, .field textarea:hover { background: var(--color-paper-2); }
+  .curve-card:hover { border-color: var(--alpha-gold-52); }
+  .curve-arrow:hover { background: var(--color-dark); transform: translateY(calc(var(--space-3xs) * -1)); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 150ms !important; animation-iteration-count: 1 !important; transition-duration: 150ms !important; }
   .brand-orbit { transform: none !important; }
-  .client-orbit-ring, .orbit-client b, .discipline { animation: none !important; filter: none !important; }
-  .orbit-client b { transform: rotate(calc(-360deg / var(--slots) * var(--slot))) !important; }
+  .discipline { animation: none !important; filter: none !important; }
+  .curve-card { transition-duration: 150ms !important; }
   .discipline { transform: none !important; }
 }

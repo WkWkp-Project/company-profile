@@ -7,7 +7,7 @@ const orbitCaption = document.querySelector('#orbit-caption');
 const pageProgress = document.querySelector('#page-progress');
 const contactForm = document.querySelector('#contact-form');
 const formStatus = document.querySelector('#form-status');
-const clientOrbit = document.querySelector('.client-orbit-stage');
+const clientCurve = document.querySelector('#client-curve');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 if (navigator.connection?.saveData && heroVideo) {
@@ -52,11 +52,177 @@ const sceneObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-scene-key]').forEach((section) => sceneObserver.observe(section));
 
-if (clientOrbit && !reduceMotion.matches && !navigator.connection?.saveData) {
-  const clientMotionObserver = new IntersectionObserver(([entry]) => {
-    clientOrbit.classList.toggle('is-motion-active', entry.isIntersecting);
+if (clientCurve) {
+  const curveViewport = clientCurve.querySelector('#curve-viewport');
+  const curveCards = [...clientCurve.querySelectorAll('.curve-card')];
+  const previousButton = clientCurve.querySelector('#curve-previous');
+  const nextButton = clientCurve.querySelector('#curve-next');
+  const activeClient = clientCurve.querySelector('#curve-active-client');
+  const activeCount = clientCurve.querySelector('#curve-active-count');
+  const cardCount = curveCards.length;
+  const curveState = {
+    current: 0,
+    target: 0,
+    activeIndex: -1,
+    dragOrigin: 0,
+    dragTarget: 0,
+    dragDistance: 0,
+    dragging: false,
+    suppressClick: false,
+    inView: false,
+    paused: false,
+    lastAdvance: performance.now()
+  };
+  let curveFrame = 0;
+
+  const wrapIndex = (value) => ((value % cardCount) + cardCount) % cardCount;
+  const nearestDelta = (index, position) => {
+    const normalized = wrapIndex(position);
+    let delta = index - normalized;
+    if (delta > cardCount / 2) delta -= cardCount;
+    if (delta < cardCount / -2) delta += cardCount;
+    return delta;
+  };
+
+  function curveGap() {
+    return Math.min(132, Math.max(94, clientCurve.clientWidth * .3));
+  }
+
+  function selectCurveCard(index) {
+    curveState.target += nearestDelta(index, curveState.target);
+    curveState.lastAdvance = performance.now();
+    queueCurve();
+  }
+
+  function renderCurve() {
+    const gap = curveGap();
+    const compact = clientCurve.clientWidth < 390;
+    curveCards.forEach((card, index) => {
+      const distance = nearestDelta(index, curveState.current);
+      const absoluteDistance = Math.abs(distance);
+      const visible = absoluteDistance < 4.15;
+      const x = distance * gap;
+      const y = distance * distance * (compact ? 9 : 11);
+      const rotation = distance * (compact ? 3.6 : 4.8);
+      const scale = Math.max(.7, 1 - absoluteDistance * .075);
+      const opacity = visible ? Math.max(.18, 1 - absoluteDistance * .2) : 0;
+      card.style.setProperty('--curve-x', `${x}px`);
+      card.style.setProperty('--curve-y', `${y}px`);
+      card.style.setProperty('--curve-r', `${rotation}deg`);
+      card.style.setProperty('--curve-s', String(scale));
+      card.style.setProperty('--curve-o', String(opacity));
+      card.style.setProperty('--curve-z', String(20 - Math.round(absoluteDistance * 3)));
+      card.toggleAttribute('inert', !visible);
+      card.tabIndex = absoluteDistance < 2.2 ? 0 : -1;
+    });
+
+    const nextActive = wrapIndex(Math.round(curveState.current));
+    if (nextActive !== curveState.activeIndex) {
+      curveState.activeIndex = nextActive;
+      curveCards.forEach((card, index) => {
+        const active = index === nextActive;
+        card.classList.toggle('is-active', active);
+        card.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+      const label = curveCards[nextActive].querySelector('strong')?.textContent || '';
+      if (activeClient) activeClient.textContent = label;
+      if (activeCount) activeCount.textContent = `${String(nextActive + 1).padStart(2, '0')} / ${String(cardCount).padStart(2, '0')}`;
+    }
+  }
+
+  function animateCurve() {
+    curveFrame = 0;
+    if (reduceMotion.matches) {
+      curveState.current = curveState.target;
+    } else {
+      curveState.current += (curveState.target - curveState.current) * .09;
+      if (Math.abs(curveState.target - curveState.current) < .001) curveState.current = curveState.target;
+    }
+    renderCurve();
+    if (curveState.dragging || Math.abs(curveState.target - curveState.current) >= .001) queueCurve();
+  }
+
+  function queueCurve() {
+    if (!curveFrame) curveFrame = window.requestAnimationFrame(animateCurve);
+  }
+
+  function finishCurveDrag(event) {
+    if (!curveState.dragging) return;
+    curveState.dragging = false;
+    curveState.suppressClick = curveState.dragDistance > 6;
+    curveState.target = Math.round(curveState.target);
+    curveState.lastAdvance = performance.now();
+    clientCurve.classList.remove('is-dragging');
+    if (event.pointerId !== undefined && curveViewport.hasPointerCapture(event.pointerId)) curveViewport.releasePointerCapture(event.pointerId);
+    queueCurve();
+    window.setTimeout(() => { curveState.suppressClick = false; }, 0);
+  }
+
+  curveCards.forEach((card, index) => card.addEventListener('click', () => {
+    if (!curveState.suppressClick) selectCurveCard(index);
+  }));
+  previousButton?.addEventListener('click', () => selectCurveCard(wrapIndex(curveState.activeIndex - 1)));
+  nextButton?.addEventListener('click', () => selectCurveCard(wrapIndex(curveState.activeIndex + 1)));
+
+  curveViewport?.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0) return;
+    curveState.dragging = true;
+    curveState.dragOrigin = event.clientX;
+    curveState.dragTarget = curveState.target;
+    curveState.dragDistance = 0;
+    curveViewport.setPointerCapture(event.pointerId);
+    clientCurve.classList.add('is-dragging');
+  });
+  curveViewport?.addEventListener('pointermove', (event) => {
+    if (!curveState.dragging) return;
+    curveState.dragDistance = Math.abs(event.clientX - curveState.dragOrigin);
+    curveState.target = curveState.dragTarget - (event.clientX - curveState.dragOrigin) / curveGap();
+    queueCurve();
+  });
+  curveViewport?.addEventListener('pointerup', finishCurveDrag);
+  curveViewport?.addEventListener('pointercancel', finishCurveDrag);
+
+  clientCurve.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      selectCurveCard(wrapIndex(curveState.activeIndex - 1));
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      selectCurveCard(wrapIndex(curveState.activeIndex + 1));
+    }
+    if (event.key === 'Home') {
+      event.preventDefault();
+      selectCurveCard(0);
+    }
+    if (event.key === 'End') {
+      event.preventDefault();
+      selectCurveCard(cardCount - 1);
+    }
+  });
+
+  clientCurve.addEventListener('pointerenter', () => { curveState.paused = true; });
+  clientCurve.addEventListener('pointerleave', () => { curveState.paused = false; });
+  clientCurve.addEventListener('focusin', () => { curveState.paused = true; });
+  clientCurve.addEventListener('focusout', () => { curveState.paused = false; });
+
+  const clientCurveObserver = new IntersectionObserver(([entry]) => {
+    curveState.inView = entry.isIntersecting;
+    if (entry.isIntersecting) curveState.lastAdvance = performance.now();
   }, { rootMargin: '18% 0px' });
-  clientMotionObserver.observe(clientOrbit);
+  clientCurveObserver.observe(clientCurve);
+
+  window.setInterval(() => {
+    const shouldAdvance = curveState.inView && !curveState.paused && !curveState.dragging && !reduceMotion.matches && !navigator.connection?.saveData;
+    if (!shouldAdvance) return;
+    curveState.target += 1;
+    curveState.lastAdvance = performance.now();
+    queueCurve();
+  }, 3200);
+
+  clientCurve.dataset.state = 'ready';
+  renderCurve();
+  queueCurve();
 }
 
 let orbitCurrent = { x: 0, y: 0 };
