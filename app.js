@@ -70,8 +70,7 @@ if (clientCurve) {
     dragging: false,
     suppressClick: false,
     inView: false,
-    paused: false,
-    lastAdvance: performance.now()
+    paused: false
   };
   let curveFrame = 0;
 
@@ -90,7 +89,6 @@ if (clientCurve) {
 
   function selectCurveCard(index) {
     curveState.target += nearestDelta(index, curveState.target);
-    curveState.lastAdvance = performance.now();
     queueCurve();
   }
 
@@ -151,7 +149,6 @@ if (clientCurve) {
     curveState.dragging = false;
     curveState.suppressClick = curveState.dragDistance > 6;
     curveState.target = Math.round(curveState.target);
-    curveState.lastAdvance = performance.now();
     clientCurve.classList.remove('is-dragging');
     if (event.pointerId !== undefined && curveViewport.hasPointerCapture(event.pointerId)) curveViewport.releasePointerCapture(event.pointerId);
     queueCurve();
@@ -208,7 +205,6 @@ if (clientCurve) {
 
   const clientCurveObserver = new IntersectionObserver(([entry]) => {
     curveState.inView = entry.isIntersecting;
-    if (entry.isIntersecting) curveState.lastAdvance = performance.now();
   }, { rootMargin: '18% 0px' });
   clientCurveObserver.observe(clientCurve);
 
@@ -216,9 +212,8 @@ if (clientCurve) {
     const shouldAdvance = curveState.inView && !curveState.paused && !curveState.dragging && !reduceMotion.matches && !navigator.connection?.saveData;
     if (!shouldAdvance) return;
     curveState.target += 1;
-    curveState.lastAdvance = performance.now();
     queueCurve();
-  }, 3200);
+  }, 2200);
 
   clientCurve.dataset.state = 'ready';
   renderCurve();
