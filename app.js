@@ -22,7 +22,7 @@ const toolLogos={'WakuFlow Content':'assets/tools/wf-content-symbol.png','WakuFl
 const media={C001:'assets/C001.png',C002:'assets/C002.png',C003:'assets/C003.png',C004:'assets/C004.png',C005:'assets/C005.png',C006:'assets/C006.jpg',C009:'assets/C009.webp',C013:'assets/C013.jpg',C015:'assets/C015.jpg',C016:'assets/C016.jpg',C017:'assets/C017.jpg'}
 const detailMedia={C009:{src:'assets/C009.webp',ratio:1.339},C013:{src:'assets/C013-wide.jpg',ratio:2},C015:{src:'assets/C015-wide.jpg',ratio:2.628},C016:{src:'assets/C016.jpg',ratio:1.339},C017:{src:'assets/C017.jpg',ratio:1.339}};;
 const serviceCardMedia=[1,2,3,4,5,6].map(n=>`assets/services/service-0${n}-card.webp?v=2`);
-const serviceDetailMedia=[1,2,3,4,5,6].map(n=>`assets/services/service-0${n}-detail.webp?v=2`);
+const serviceDetailMedia=[1,2,3,4,5,6].map(n=>`assets/services/service-0${n}-detail.webp?v=3`);
 const filmSources=[1,2,3,4].map(i=>`assets/hero-loop-${i}.webm`);
 const posters=[1,2,3,4].map(i=>`assets/film-poster-${i}.jpg`);
 const paragraphs=arr=>arr.map(p=>`<p>${esc(p)}</p>`).join('');
