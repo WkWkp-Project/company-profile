@@ -1,0 +1,86 @@
+:root {
+  color-scheme: light;
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-body: "Inter", "Prompt", sans-serif;
+
+  --color-paper: oklch(98% 0.008 78);
+  --color-paper-2: oklch(95% 0.014 78);
+  --color-paper-3: oklch(91% 0.018 78);
+  --color-card: oklch(99% 0.006 78);
+  --color-dark: oklch(18% 0.018 75);
+  --color-dark-2: oklch(22% 0.022 75);
+  --color-ink: oklch(20% 0.014 75);
+  --color-ink-soft: oklch(43% 0.012 75);
+  --color-light-ink: oklch(96% 0.012 78);
+  --color-light-soft: oklch(76% 0.012 78);
+  --color-gold: oklch(68% 0.11 82);
+  --color-gold-deep: oklch(51% 0.095 78);
+  --color-gold-pale: oklch(91% 0.045 82);
+  --color-line: oklch(72% 0.19 145);
+  --color-line-active: oklch(64% 0.17 145);
+  --color-accent: var(--color-gold);
+  --color-accent-ink: var(--color-dark);
+  --color-focus: oklch(62% 0.13 80);
+  --color-rule: oklch(81% 0.022 78);
+  --color-rule-dark: oklch(34% 0.028 75);
+  --color-error: oklch(52% 0.19 25);
+  --color-success: oklch(50% 0.13 145);
+  --color-content: oklch(48% 0.09 72);
+  --color-influencer: oklch(55% 0.18 24);
+  --color-tracker: oklch(43% 0.12 148);
+  --color-commerce: oklch(63% 0.16 48);
+
+  --alpha-dark-10: oklch(18% 0.018 75 / 10%);
+  --alpha-dark-34: oklch(18% 0.018 75 / 34%);
+  --alpha-dark-72: oklch(18% 0.018 75 / 72%);
+  --alpha-light-08: oklch(96% 0.012 78 / 8%);
+  --alpha-light-16: oklch(96% 0.012 78 / 16%);
+  --alpha-light-28: oklch(96% 0.012 78 / 28%);
+  --alpha-gold-14: oklch(68% 0.11 82 / 14%);
+  --alpha-gold-30: oklch(68% 0.11 82 / 30%);
+  --alpha-gold-52: oklch(68% 0.11 82 / 52%);
+  --alpha-line-24: oklch(72% 0.19 145 / 24%);
+
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 9rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.953rem;
+  --text-2xl: 2.441rem;
+  --text-3xl: 3.052rem;
+  --text-display: clamp(2.7rem, 10vw, 4.6rem);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.5rem;
+  --radius-pill: 999px;
+  --rule-hair: 1px;
+  --profile-width: 30rem;
+  --control-size: 2.75rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  --shadow-profile: 0 3rem 7rem var(--alpha-dark-34);
+  --shadow-line: 0 1rem 2.5rem var(--alpha-line-24);
+
+  --z-base: 1;
+  --z-raised: 10;
+  --z-sticky: 200;
+}
