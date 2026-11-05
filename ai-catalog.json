@@ -6,7 +6,7 @@
   },
   "entries": [
     {
-      "identifier": "urn:ai:wkwkp.com:knowledge:llms-txt",
+      "identifier": "urn:air:wkwkp.com:knowledge:llms-txt",
       "displayName": "WAKUWAKU Production knowledge index (llms.txt)",
       "type": "text/plain",
       "mediaType": "text/plain",
