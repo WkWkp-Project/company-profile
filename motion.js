@@ -43,25 +43,32 @@ let openingTimers=[], heroVisible=true, entranceDone=false;
 // Each file contains the complete rotating sequence. Playback never seeks to
 // arbitrary offsets, so it also works on preview servers without byte ranges.
 const filmPlayers=$$('.film video').map((video,index)=>({video,index,pending:null}));
-let filmStarted=false, filmUserPaused=false;
+let filmStarted=false, filmUserPaused=false, pageReady=false;
 const filmBtn=$('#film-play');
+// Phones/tablets autoplay the SMALL files, but only after the page has finished loading (never competes with
+// the first paint) and never on Data Saver / 2G / 3G connections, where the poster + Play button are shown instead.
+const slowConnection=()=>{const c=navigator.connection;return !!c&&(c.saveData===true||/^(slow-2g|2g|3g)$/.test(c.effectiveType||''));};
+const autoCapable=()=>lite.matches&&!reduce.matches&&!slowConnection();
+const liteAuto=()=>autoCapable()&&pageReady;
 function updateFilmButton(){
- const on=lite.matches&&!reduce.matches, playing=filmStarted&&!filmUserPaused;
+ const on=lite.matches&&!reduce.matches, started=filmStarted||autoCapable(), playing=started&&!filmUserPaused;
  filmBtn.hidden=!on;
- filmBtn.classList.toggle('is-mini',on&&filmStarted);
+ filmBtn.classList.toggle('is-mini',on&&started);
  filmBtn.classList.toggle('is-pause',playing);
  filmBtn.lastElementChild.textContent=t(playing?'pause':'play');
 }
 filmBtn.addEventListener('click',()=>{
- if(!filmStarted){filmStarted=true;filmUserPaused=false;}else filmUserPaused=!filmUserPaused;
+ if(!(filmStarted||autoCapable())){filmStarted=true;filmUserPaused=false;}else filmUserPaused=!filmUserPaused;
  updateFilmButton();playVisibleFilms();
 });
+const markPageReady=()=>setTimeout(()=>{pageReady=true;playVisibleFilms();},1200);
+if(document.readyState==='complete')markPageReady();else window.addEventListener('load',markPageReady,{once:true});
 lite.addEventListener('change',()=>{updateFilmButton();playVisibleFilms();});
 new MutationObserver(updateFilmButton).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 function playVisibleFilms(){
  filmPlayers.forEach(player=>{
   const {video:v,index:i}=player;
-  const eligible=!paused&&!(lite.matches&&(!filmStarted||filmUserPaused))&&(!small.matches||i===0);
+  const eligible=!paused&&!filmUserPaused&&(!lite.matches||filmStarted||liteAuto())&&(!small.matches||i===0);
   if(eligible&&!v.getAttribute('src')){v.muted=true;v.defaultMuted=true;v.preload='auto';v.src=(lite.matches?filmSourcesSmall:filmSources)[i];v.load();}
   if(!eligible||document.hidden||!heroVisible||!entranceDone){v.pause();return;}
   if(!v.paused||player.pending)return;

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://wkwkp.com/sitemap.xml
+Agentmap: https://wkwkp.com/.well-known/ai-catalog.json
