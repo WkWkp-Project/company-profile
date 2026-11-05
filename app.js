@@ -120,6 +120,7 @@ function openModal(type,id,show=true){
  $('#detail').scrollTop=show?0:previousScroll;
 }
 function startFilms(){
+ if($('.film-wall').children.length===4)return; // already pre-rendered in index.html (reserves the space, no layout shift)
  $('.film-wall').innerHTML=[0,1,2,3].map((i)=>`<div class="film" style="background-image:url('${posters[i]}')"><video muted loop playsinline preload="none" poster="${posters[i]}" aria-hidden="true"></video><div class="film-progress">${[0,1,2,3].map(()=>'<i><b></b></i>').join('')}</div><span class="film-label">WAKUWAKU — <span>01</span></span></div>`).join('');
 }
 document.addEventListener('click',e=>{
