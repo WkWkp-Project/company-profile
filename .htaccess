@@ -8,6 +8,14 @@ RewriteEngine On
 # Never expose hidden files (keep .well-known for certificates)
 RewriteRule ^\.(?!well-known) - [R=404,L]
 
+# Machine-readable endpoints that do not exist (agent/crawler probes such as /.well-known/*, *.json, *.xml, feeds, WordPress API)
+# must answer a real 404. A redirect to the HTML homepage makes clients fail with "Unexpected token '<'".
+RewriteRule ^(.*/)?(wp-json|xmlrpc\.php|feed)(/|$) - [R=404,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^\.well-known/ - [R=404,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule \.(json|xml|rss|atom|txt|md|yaml|yml|csv)$ - [R=404,L]
+
 # Leftover WordPress / PHP files must never be reachable or executable: send them to the homepage too
 RewriteRule ^wp-  / [R=301,L]
 RewriteRule ^xmlrpc\.php$ / [R=301,L]
@@ -32,7 +40,10 @@ Header always set Strict-Transport-Security "max-age=31536000"
 Header always set Content-Security-Policy "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'"
 # Report-Only: the full policy. Check the browser console on the live site with cookies accepted;
 # when there are no violations, move this value into Content-Security-Policy above.
-<FilesMatch "^(ai-catalog\.json|ard\.json|llms\.txt)$">
+<FilesMatch "\.html$">
+Header always set Link '</.well-known/ard.json>; rel="ard", </llms.txt>; rel="alternate"; type="text/plain"'
+</FilesMatch>
+<FilesMatch "^(ai-catalog\.json|ard\.json|llms\.txt|security\.txt)$">
 Header always set Access-Control-Allow-Origin "*"
 </FilesMatch>
 Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com; font-src 'self'; media-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.google.com; frame-src 'none'"

@@ -1,3 +1,5 @@
+# AI crawlers and assistants (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, ...) are welcome: this site wants to be
+# found and described accurately. Agent entry points: /llms.txt and /.well-known/ard.json
 User-agent: *
 Allow: /
 
