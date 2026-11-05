@@ -8,6 +8,12 @@ RewriteEngine On
 # Never expose hidden files (keep .well-known for certificates)
 RewriteRule ^\.(?!well-known) - [R=404,L]
 
+# Leftover WordPress / PHP files must never be reachable or executable: send them to the homepage too
+RewriteRule ^wp-  / [R=301,L]
+RewriteRule ^xmlrpc\.php$ / [R=301,L]
+RewriteRule \.php$ / [R=301,L]
+RewriteRule ^(readme|license)\.(html|txt)$ / [R=301,L]
+
 # Real files and folders (css, js, images, favicon, robots.txt, sitemap.xml ...) are served as they are
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
