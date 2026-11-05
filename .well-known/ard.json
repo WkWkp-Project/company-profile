@@ -1,0 +1,22 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "WAKUWAKU Production",
+    "identifier": "wkwkp.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:wkwkp.com:knowledge:llms-txt",
+      "displayName": "WAKUWAKU Production knowledge index (llms.txt)",
+      "type": "text/plain",
+      "mediaType": "text/plain",
+      "url": "https://wkwkp.com/llms.txt",
+      "description": "Plain-text index of the WAKUWAKU Production website: who the agency is (a Bangkok marketing agency for the food and beverage industry), its six service areas, selected work and contact channels, in Thai and English.",
+      "representativeQueries": [
+        "Which marketing agency in Bangkok specialises in the food and beverage industry?",
+        "How do I contact WAKUWAKU Production?",
+        "What marketing services does WAKUWAKU Production offer to food and drink brands?"
+      ]
+    }
+  ]
+}
