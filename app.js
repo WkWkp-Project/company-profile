@@ -122,7 +122,7 @@ function startFilms(){
 }
 document.addEventListener('click',e=>{
  const anchor=e.target.closest('a[href^="#"]');
- if(anchor){const target=$(anchor.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'instant'});history.replaceState(null,'',anchor.getAttribute('href'));}}
+ if(anchor){const target=$(anchor.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'instant'});history.replaceState(null,'',location.pathname+location.search+anchor.getAttribute('href'));}}
  const btn=e.target.closest('button');if(btn){
   if(btn.dataset.select!==undefined)selectArea(Number(btn.dataset.select));
   if(btn.dataset.detail){parentService=null;openModal('area',btn.dataset.detail);}
@@ -167,7 +167,7 @@ $('#enquiry').addEventListener('submit',e=>{
   areas.length?(th?'หัวข้อที่ต้องการปรึกษา: ':'Topics to discuss: ')+areas.join(', '):null,
   '',th?'สินค้าและรายละเอียดที่ต้องการปรึกษา:':'Product and what you would like to discuss:',f.get('message')
  ].filter(l=>l!==null).join(nl);
- location.href='mailto:info@wkwkp.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+ trackLead('email_form');location.href='mailto:info@wkwkp.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
  $('#form-status').textContent=t('demoDone');
 });
 let scrollFrame=0;window.addEventListener('scroll',()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(()=>{updateScroll();scrollFrame=0;});},{passive:true});
@@ -189,3 +189,5 @@ document.addEventListener('click',e=>{
 });
 $('#copy-context').onclick=async()=>{try{await navigator.clipboard.writeText($('#contact-context').textContent);$('#copy-status').textContent=t('copied');}catch{$('#copy-status').textContent=t('copyFailed');}};
 render();startFilms();updateScroll();
+function trackLead(method){const p={method};window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:'generate_lead'},p));if(typeof gtag==='function')gtag('event','generate_lead',p);}
+document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;const h=a.href||'';if(h.includes('line.me'))trackLead('line');else if(h.includes('m.me'))trackLead('messenger');else if(h.startsWith('mailto:'))trackLead('email_link');});
