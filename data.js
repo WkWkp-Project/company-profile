@@ -1054,6 +1054,274 @@ window.COPY = {
     "th": "เราใช้ข้อมูลที่คุณส่งมาเพื่อตอบคำถามและติดต่อเกี่ยวกับเรื่องที่คุณปรึกษา ดูรายละเอียดการใช้ข้อมูลและสิทธิของคุณในประกาศความเป็นส่วนตัว",
     "en": "We use the information you send to respond and follow up on your enquiry. Read our privacy notice for details of how we use your information and your rights."
   },
+  "privacyFull": {
+    "th": {
+      "title": "ประกาศความเป็นส่วนตัว",
+      "updated": "มีผลตั้งแต่วันที่ 5 พฤศจิกายน 2569",
+      "intro": "ประกาศนี้อธิบายว่า Wakuwaku Production Co., Ltd. (“WAKUWAKU”, “เรา”) เก็บ ใช้ และเปิดเผยข้อมูลส่วนบุคคลของผู้เข้าชมเว็บไซต์ wkwkp.com และผู้ติดต่อเราอย่างไร ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)",
+      "sections": [
+        {
+          "h": "1. ผู้ควบคุมข้อมูลส่วนบุคคล",
+          "p": [
+            "Wakuwaku Production Co., Ltd.\nที่อยู่: 2499 อาคารคาวาซากิ ห้องเลขที่ 403 ชั้นที่ 4 ถนนเพชรบุรีตัดใหม่ แขวงบางกะปิ เขตห้วยขวาง กรุงเทพมหานคร 10310\nอีเมล: info@wkwkp.com"
+          ]
+        },
+        {
+          "h": "2. ข้อมูลที่เราเก็บ",
+          "lead": [
+            "เราเก็บข้อมูลเท่าที่จำเป็น แบ่งเป็น 4 กลุ่ม"
+          ],
+          "ul": [
+            "ข้อมูลที่คุณส่งให้เรา: ชื่อ (ถ้าระบุ) อีเมล ข้อความหรือรายละเอียดสินค้า/เรื่องที่ต้องการปรึกษา และหัวข้อบริการที่คุณเลือก เมื่อคุณติดต่อทางอีเมล LINE หรือ Messenger ปุ่มส่งในแบบฟอร์มของเว็บไซต์นี้จะเปิดแอปอีเมลของคุณเพื่อให้คุณตรวจและส่งเอง เว็บไซต์ไม่บันทึกข้อความในแบบฟอร์มไว้บนเซิร์ฟเวอร์ของเรา",
+            "ข้อมูลการใช้งานเว็บไซต์ (เฉพาะเมื่อคุณยินยอมคุกกี้): ผ่าน Google Analytics 4 ได้แก่ รหัสสุ่มที่ระบุเบราว์เซอร์ หน้าที่เข้าชม เวลาที่ใช้ ประเภทอุปกรณ์ เบราว์เซอร์ ภาษา ตำแหน่งโดยประมาณระดับเมือง แหล่งที่มาของการเข้าชม และการคลิกปุ่มติดต่อ (LINE, Messenger, อีเมล)",
+            "ข้อมูลทางเทคนิคของเซิร์ฟเวอร์: หมายเลขไอพี (IP address) วันเวลา และหน้าที่ร้องขอ ซึ่งผู้ให้บริการโฮสติ้งบันทึกโดยอัตโนมัติเมื่อมีการเข้าเว็บไซต์",
+            "ฟอนต์จาก Google Fonts: เมื่อเปิดหน้าเว็บ เบราว์เซอร์ของคุณขอไฟล์ฟอนต์จากเซิร์ฟเวอร์ของ Google ทำให้ Google ได้รับหมายเลขไอพีของคุณ"
+          ]
+        },
+        {
+          "h": "3. วัตถุประสงค์และฐานทางกฎหมาย",
+          "ul": [
+            "ตอบคำถาม ให้คำปรึกษา เสนอบริการ และติดตามเรื่องที่คุณสอบถาม ฐานทางกฎหมาย: การดำเนินการตามคำขอของคุณก่อนเข้าทำสัญญา และประโยชน์โดยชอบด้วยกฎหมายของเราในการตอบกลับผู้ที่ติดต่อมา",
+            "วิเคราะห์การใช้งานเว็บไซต์เพื่อปรับปรุงเนื้อหาและประสบการณ์ใช้งาน ฐานทางกฎหมาย: ความยินยอมของคุณ ซึ่งถอนได้ทุกเมื่อ",
+            "รักษาความปลอดภัยของเว็บไซต์ ป้องกันการใช้งานที่ผิดปกติ ฐานทางกฎหมาย: ประโยชน์โดยชอบด้วยกฎหมาย",
+            "ปฏิบัติตามกฎหมายและคำสั่งของหน่วยงานที่มีอำนาจ ฐานทางกฎหมาย: การปฏิบัติตามกฎหมาย"
+          ],
+          "p": [
+            "เราไม่ขายข้อมูลส่วนบุคคลของคุณ และไม่ใช้ข้อมูลของคุณเพื่อการโฆษณาแบบติดตามหรือการทำโปรไฟล์ที่ส่งผลต่อสิทธิของคุณ"
+          ]
+        },
+        {
+          "h": "4. คุกกี้และเทคโนโลยีที่คล้ายกัน",
+          "lead": [
+            "เว็บไซต์ใช้คุกกี้วิเคราะห์ของ Google Analytics เฉพาะเมื่อคุณกด “ยอมรับ” ที่แบนเนอร์ หากคุณกด “ปฏิเสธ” หรือยังไม่ได้เลือก เราจะไม่โหลด Google Analytics และไม่ตั้งคุกกี้วิเคราะห์ คุณเปลี่ยนใจได้ทุกเมื่อโดยกด “ตั้งค่าคุกกี้” ที่ส่วนท้ายของเว็บไซต์"
+          ],
+          "table": {
+            "head": [
+              "ชื่อ",
+              "ผู้ให้บริการ",
+              "วัตถุประสงค์",
+              "อายุ",
+              "ต้องได้รับความยินยอม"
+            ],
+            "rows": [
+              [
+                "_ga",
+                "Google",
+                "แยกแยะผู้เข้าชมเพื่อสถิติการใช้งาน",
+                "2 ปี",
+                "ใช่"
+              ],
+              [
+                "_ga_<รหัสสตรีม>",
+                "Google",
+                "เก็บสถานะเซสชันของ Google Analytics 4",
+                "2 ปี",
+                "ใช่"
+              ],
+              [
+                "waku-consent (พื้นที่จัดเก็บในเบราว์เซอร์)",
+                "WAKUWAKU",
+                "จำการเลือกคุกกี้ของคุณ",
+                "จนกว่าคุณจะลบ",
+                "ไม่ (จำเป็น)"
+              ]
+            ]
+          }
+        },
+        {
+          "h": "5. การเปิดเผยและการส่งข้อมูลไปต่างประเทศ",
+          "p": [
+            "เราเปิดเผยข้อมูลเท่าที่จำเป็นให้ผู้ให้บริการที่ช่วยเราดำเนินงาน ได้แก่ Google (Analytics และ Fonts) LINE (เมื่อคุณติดต่อผ่าน LINE) Meta (เมื่อคุณติดต่อผ่าน Messenger) และผู้ให้บริการโฮสติ้งของเว็บไซต์ ผู้ให้บริการบางรายประมวลผลข้อมูลบนเซิร์ฟเวอร์นอกประเทศไทย เราจะดูแลให้มีมาตรการคุ้มครองที่เหมาะสมตามที่กฎหมายกำหนด การใช้ LINE และ Messenger อยู่ภายใต้นโยบายความเป็นส่วนตัวของผู้ให้บริการนั้น"
+          ]
+        },
+        {
+          "h": "6. ระยะเวลาเก็บรักษา",
+          "ul": [
+            "ข้อมูลการติดต่อและการสนทนา: เท่าที่จำเป็นต่อวัตถุประสงค์ และไม่เกิน 2 ปีนับจากการติดต่อครั้งล่าสุด เว้นแต่มีสัญญาหรือกฎหมายกำหนดให้เก็บนานกว่านั้น",
+            "ข้อมูลสถิติจาก Google Analytics: 14 เดือน",
+            "บันทึกทางเทคนิคของเซิร์ฟเวอร์: ตามระยะเวลาที่ผู้ให้บริการโฮสติ้งกำหนด เพื่อความปลอดภัยของระบบ"
+          ],
+          "p": [
+            "เมื่อครบกำหนด เราจะลบหรือทำให้ข้อมูลไม่สามารถระบุตัวตนได้"
+          ]
+        },
+        {
+          "h": "7. สิทธิของเจ้าของข้อมูล",
+          "lead": [
+            "คุณมีสิทธิตามกฎหมาย ดังนี้"
+          ],
+          "ul": [
+            "ขอเข้าถึงและขอรับสำเนาข้อมูลของคุณ",
+            "ขอให้แก้ไขข้อมูลให้ถูกต้อง",
+            "ขอให้ลบหรือทำลายข้อมูล หรือทำให้ไม่สามารถระบุตัวตนได้",
+            "ขอให้ระงับการใช้ข้อมูล หรือคัดค้านการเก็บ ใช้ หรือเปิดเผยข้อมูล",
+            "ขอรับหรือขอให้ส่งโอนข้อมูลในรูปแบบที่อ่านได้ตามที่กฎหมายกำหนด",
+            "ถอนความยินยอมได้ทุกเมื่อ โดยกด “ตั้งค่าคุกกี้” ที่ส่วนท้ายของเว็บไซต์ การถอนไม่กระทบการประมวลผลที่ได้ทำไปแล้วโดยชอบ"
+          ],
+          "p": [
+            "ส่งคำขอได้ที่ info@wkwkp.com เราจะตอบกลับภายใน 30 วันนับจากวันที่ได้รับคำขอ หากคุณเห็นว่าเราไม่ปฏิบัติตามกฎหมาย คุณมีสิทธิร้องเรียนต่อสำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล"
+          ]
+        },
+        {
+          "h": "8. ความมั่นคงปลอดภัย",
+          "p": [
+            "เราใช้มาตรการที่เหมาะสมเพื่อป้องกันการเข้าถึง ใช้ เปลี่ยนแปลง หรือเปิดเผยข้อมูลโดยไม่ได้รับอนุญาต เช่น การเข้ารหัสการเชื่อมต่อ (HTTPS) และการจำกัดสิทธิ์การเข้าถึงข้อมูลเฉพาะผู้ที่จำเป็นต้องใช้"
+          ]
+        },
+        {
+          "h": "9. ผู้เยาว์",
+          "p": [
+            "เว็บไซต์นี้ไม่ได้จัดทำขึ้นเพื่อเก็บข้อมูลของผู้เยาว์ หากเราทราบว่าได้รับข้อมูลของผู้เยาว์โดยไม่ได้รับความยินยอมที่ถูกต้องจากผู้ปกครอง เราจะลบข้อมูลนั้น"
+          ]
+        },
+        {
+          "h": "10. การเปลี่ยนแปลงประกาศนี้",
+          "p": [
+            "เราอาจปรับปรุงประกาศนี้เป็นครั้งคราว โดยจะแสดงวันที่มีผลบังคับไว้ที่ด้านบนของประกาศ และแจ้งให้ทราบอีกครั้งหากมีการเปลี่ยนแปลงที่สำคัญ"
+          ]
+        },
+        {
+          "h": "11. ติดต่อเรา",
+          "p": [
+            "หากมีคำถามเกี่ยวกับประกาศนี้หรือการใช้ข้อมูลของคุณ ติดต่อได้ที่ info@wkwkp.com หรือที่อยู่ข้างต้น"
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Privacy Notice",
+      "updated": "Effective 5 November 2026",
+      "intro": "This notice explains how Wakuwaku Production Co., Ltd. (“WAKUWAKU”, “we”) collects, uses and discloses the personal data of visitors to wkwkp.com and of people who contact us, in line with Thailand’s Personal Data Protection Act B.E. 2562 (2019) (PDPA).",
+      "sections": [
+        {
+          "h": "1. Data controller",
+          "p": [
+            "Wakuwaku Production Co., Ltd.\nAddress: 2499 Kawasaki Building, Room 403, 4th Floor, Phetchaburi Tat Mai Road, Bang Kapi, Huai Khwang, Bangkok 10310, Thailand\nEmail: info@wkwkp.com"
+          ]
+        },
+        {
+          "h": "2. Data we collect",
+          "lead": [
+            "We collect only what we need, in four groups."
+          ],
+          "ul": [
+            "Information you send us: your name (optional), email address, message or product details, and the service topics you select, when you contact us by email, LINE or Messenger. The send button on this website's form opens your own email app so you can review and send the message yourself; the website does not store form text on our servers.",
+            "Website usage data (only if you accept cookies): through Google Analytics 4 — a random identifier for your browser, pages viewed, time spent, device type, browser, language, approximate city-level location, traffic source, and clicks on contact buttons (LINE, Messenger, email).",
+            "Technical server data: your IP address, date and time, and requested pages, recorded automatically by our hosting provider when you visit the website.",
+            "Google Fonts: when a page opens, your browser requests font files from Google's servers, so Google receives your IP address."
+          ]
+        },
+        {
+          "h": "3. Purposes and legal bases",
+          "ul": [
+            "To answer questions, give advice, propose services and follow up on your enquiry. Legal basis: taking steps at your request before entering a contract, and our legitimate interest in replying to people who contact us.",
+            "To analyse website use so we can improve content and usability. Legal basis: your consent, which you can withdraw at any time.",
+            "To keep the website secure and prevent abnormal use. Legal basis: legitimate interest.",
+            "To comply with law and orders of competent authorities. Legal basis: legal obligation."
+          ],
+          "p": [
+            "We do not sell your personal data, and we do not use it for tracking-based advertising or profiling that affects your rights."
+          ]
+        },
+        {
+          "h": "4. Cookies and similar technologies",
+          "lead": [
+            "This website uses Google Analytics cookies only if you press “Accept” on the banner. If you press “Reject” or have not chosen, we do not load Google Analytics and do not set analytics cookies. You can change your mind at any time with “Cookie settings” in the footer."
+          ],
+          "table": {
+            "head": [
+              "Name",
+              "Provider",
+              "Purpose",
+              "Lifetime",
+              "Consent needed"
+            ],
+            "rows": [
+              [
+                "_ga",
+                "Google",
+                "Distinguishes visitors for usage statistics",
+                "2 years",
+                "Yes"
+              ],
+              [
+                "_ga_<stream ID>",
+                "Google",
+                "Keeps Google Analytics 4 session state",
+                "2 years",
+                "Yes"
+              ],
+              [
+                "waku-consent (browser storage)",
+                "WAKUWAKU",
+                "Remembers your cookie choice",
+                "Until you clear it",
+                "No (necessary)"
+              ]
+            ]
+          }
+        },
+        {
+          "h": "5. Disclosure and transfers abroad",
+          "p": [
+            "We disclose data only as needed to service providers that help us operate: Google (Analytics and Fonts), LINE (if you contact us through LINE), Meta (if you contact us through Messenger), and the website's hosting provider. Some providers process data on servers outside Thailand. We make sure appropriate safeguards are in place as required by law. Use of LINE and Messenger is governed by those providers' own privacy policies."
+          ]
+        },
+        {
+          "h": "6. Retention",
+          "ul": [
+            "Contact details and conversations: as long as needed for the purpose and no longer than 2 years after our last contact, unless a contract or law requires longer.",
+            "Google Analytics statistics: 14 months.",
+            "Technical server logs: for the period set by our hosting provider, for system security."
+          ],
+          "p": [
+            "When the period ends, we delete the data or make it non-identifiable."
+          ]
+        },
+        {
+          "h": "7. Your rights",
+          "lead": [
+            "You have the following rights under the law."
+          ],
+          "ul": [
+            "Access your data and request a copy.",
+            "Have inaccurate data corrected.",
+            "Have data deleted, destroyed or made non-identifiable.",
+            "Request restriction of use, or object to collection, use or disclosure.",
+            "Receive or transfer your data in a readable format, as the law provides.",
+            "Withdraw consent at any time through “Cookie settings” in the footer. Withdrawal does not affect processing already carried out lawfully."
+          ],
+          "p": [
+            "Send requests to info@wkwkp.com. We will reply within 30 days of receiving your request. If you believe we have not complied with the law, you have the right to complain to the Office of the Personal Data Protection Committee."
+          ]
+        },
+        {
+          "h": "8. Security",
+          "p": [
+            "We use appropriate measures to prevent unauthorised access, use, alteration or disclosure, such as encrypted connections (HTTPS) and limiting access to those who need it."
+          ]
+        },
+        {
+          "h": "9. Minors",
+          "p": [
+            "This website is not designed to collect data from minors. If we learn that we have received a minor's data without valid parental consent, we will delete it."
+          ]
+        },
+        {
+          "h": "10. Changes to this notice",
+          "p": [
+            "We may update this notice from time to time. The effective date is shown at the top, and we will give notice again of any significant change."
+          ]
+        },
+        {
+          "h": "11. Contact",
+          "p": [
+            "For questions about this notice or your data, contact info@wkwkp.com or the address above."
+          ]
+        }
+      ]
+    }
+  },
   "steps": [
     {
       "th": "คุยเรื่องสินค้าหรือบริการ กลุ่มลูกค้า และเป้าหมายของคุณ",

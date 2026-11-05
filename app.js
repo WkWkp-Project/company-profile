@@ -7,8 +7,8 @@ let lang='th', active=0, selectedTopic=null, modalState=null, paused=reduce.matc
 let parentService=null;
 const selectedAreas=new Set();let areasEdited=false;
 const words={
- th:{identity:'เอเจนซีการตลาดเฉพาะทางสำหรับอุตสาหกรรมอาหาร',line:'ปรึกษาทาง LINE',contact:'ติดต่อเรา',pause:'หยุดวิดีโอ',play:'เล่นวิดีโอ',general:'ปรึกษาภาพรวมการตลาด',work:'ผลงานของเรา',company:'ข้อมูลบริษัท',contactTitle:'ติดต่อ WAKUWAKU',privacy:'อ่านประกาศความเป็นส่วนตัว',demo:'เมื่อกดส่ง ระบบจะเปิดแอปอีเมลของคุณพร้อมข้อความที่เตรียมไว้ ตรวจสอบแล้วกดส่งอีกครั้ง',demoDone:'เปิดแอปอีเมลพร้อมข้อความแล้ว หากไม่เปิดขึ้น กรุณาส่งอีเมลมาที่ info@wkwkp.com',form:'ส่งแบบฟอร์ม',more:'ดูรายละเอียดบริการ',enquire:'ปรึกษาเรื่องนี้',view:'ดูรายละเอียดผลงาน',similar:'ปรึกษาเกี่ยวกับงานลักษณะนี้',related:'ผลงานที่เกี่ยวข้อง',imagePending:'ภาพประกอบอยู่ระหว่างเตรียม',privacyPending:'ประกาศความเป็นส่วนตัวฉบับเผยแพร่จะเชื่อมต่อในขั้นตอนพัฒนา แบบฟอร์มตัวอย่างนี้ไม่ส่งหรือบันทึกข้อมูล',categories:['วิจัยและกลยุทธ์','แบรนด์และครีเอทีฟ','แคมเปญการตลาด','อีเวนต์และประสบการณ์','ยอดขายออนไลน์','เทคโนโลยีการตลาด']},
- en:{identity:'Marketing specialists for the food industry.',line:'Chat on LINE',contact:'Contact us',pause:'Pause video',play:'Play video',general:'Discuss your marketing',work:'Our Work',company:'Company Information',contactTitle:'Contact WAKUWAKU',privacy:'Read our privacy notice',demo:'Sending opens your email app with a message ready to go. Review it and press send there.',demoDone:'Your email app should now be open with the message. If not, please email info@wkwkp.com.',form:'Send an enquiry',more:'View service details',enquire:'Enquire',view:'View project',similar:'Discuss a project like this',related:'Related work',imagePending:'Project image in preparation',privacyPending:'The publication privacy notice will be connected during development. This preview does not send or save form data.',categories:['Research & strategy','Brand & creative','Marketing campaigns','Events & experiences','Online sales','Marketing technology']}
+ th:{identity:'เอเจนซีการตลาดเฉพาะทางสำหรับอุตสาหกรรมอาหาร',line:'ปรึกษาทาง LINE',contact:'ติดต่อเรา',pause:'หยุดวิดีโอ',play:'เล่นวิดีโอ',general:'ปรึกษาภาพรวมการตลาด',work:'ผลงานของเรา',company:'ข้อมูลบริษัท',contactTitle:'ติดต่อ WAKUWAKU',cookieTitle:'เราใช้คุกกี้',cookieText:'เว็บไซต์นี้ใช้คุกกี้ของ Google Analytics เพื่อวิเคราะห์การเข้าชม เฉพาะเมื่อคุณยินยอม คุณเลือกยอมรับหรือปฏิเสธได้ และเปลี่ยนใจได้ทุกเมื่อที่ “ตั้งค่าคุกกี้” ท้ายเว็บไซต์',cookieAccept:'ยอมรับ',cookieReject:'ปฏิเสธ',cookieSettings:'ตั้งค่าคุกกี้',privacy:'อ่านประกาศความเป็นส่วนตัว',demo:'เมื่อกดส่ง ระบบจะเปิดแอปอีเมลของคุณพร้อมข้อความที่เตรียมไว้ ตรวจสอบแล้วกดส่งอีกครั้ง',demoDone:'เปิดแอปอีเมลพร้อมข้อความแล้ว หากไม่เปิดขึ้น กรุณาส่งอีเมลมาที่ info@wkwkp.com',form:'ส่งแบบฟอร์ม',more:'ดูรายละเอียดบริการ',enquire:'ปรึกษาเรื่องนี้',view:'ดูรายละเอียดผลงาน',similar:'ปรึกษาเกี่ยวกับงานลักษณะนี้',related:'ผลงานที่เกี่ยวข้อง',imagePending:'ภาพประกอบอยู่ระหว่างเตรียม',privacyPending:'ประกาศความเป็นส่วนตัวฉบับเผยแพร่จะเชื่อมต่อในขั้นตอนพัฒนา แบบฟอร์มตัวอย่างนี้ไม่ส่งหรือบันทึกข้อมูล',categories:['วิจัยและกลยุทธ์','แบรนด์และครีเอทีฟ','แคมเปญการตลาด','อีเวนต์และประสบการณ์','ยอดขายออนไลน์','เทคโนโลยีการตลาด']},
+ en:{identity:'Marketing specialists for the food industry.',line:'Chat on LINE',contact:'Contact us',pause:'Pause video',play:'Play video',general:'Discuss your marketing',work:'Our Work',company:'Company Information',contactTitle:'Contact WAKUWAKU',cookieTitle:'We use cookies',cookieText:'This website uses Google Analytics cookies to understand visits, only if you agree. You can accept or reject, and change your mind any time with “Cookie settings” in the footer.',cookieAccept:'Accept',cookieReject:'Reject',cookieSettings:'Cookie settings',privacy:'Read our privacy notice',demo:'Sending opens your email app with a message ready to go. Review it and press send there.',demoDone:'Your email app should now be open with the message. If not, please email info@wkwkp.com.',form:'Send an enquiry',more:'View service details',enquire:'Enquire',view:'View project',similar:'Discuss a project like this',related:'Related work',imagePending:'Project image in preparation',privacyPending:'The publication privacy notice will be connected during development. This preview does not send or save form data.',categories:['Research & strategy','Brand & creative','Marketing campaigns','Events & experiences','Online sales','Marketing technology']}
 };
 Object.assign(words.en,{free:'Get a free consultation',freeNote:'Start with a free consultation.',chooseAreas:'What would you like to discuss? (optional)',other:'Not sure yet / Other',caseContext:'Project of interest',copyContext:'Copy topic for LINE / Messenger',copied:'Topic copied. Paste it into your chat.',copyFailed:'Please select and copy the topic above.',brandPreview:'Selected brands · logo assets pending',pauseBrands:'Pause brand strip',resumeBrands:'Resume brand strip'});
 Object.assign(words.th,{free:'ปรึกษาฟรี',freeNote:'เริ่มต้นด้วยการปรึกษาเบื้องต้นฟรี',chooseAreas:'คุณต้องการปรึกษาด้านใด? (ไม่บังคับ)',other:'ยังไม่แน่ใจ / อื่น ๆ',caseContext:'ผลงานที่สนใจ',copyContext:'คัดลอกหัวข้อสำหรับ LINE / Messenger',copied:'คัดลอกหัวข้อแล้ว วางในแชตของคุณได้เลย',copyFailed:'กรุณาเลือกและคัดลอกหัวข้อด้านบน',brandPreview:'แบรนด์ที่ร่วมงาน · อยู่ระหว่างเตรียมโลโก้',pauseBrands:'หยุดแถบแบรนด์',resumeBrands:'เล่นแถบแบรนด์'});
@@ -110,7 +110,7 @@ function openModal(type,id,show=true){
   content=`<div class="service-detail-image"><img src="${serviceDetailMedia[index]}" alt="${esc(t('categories')[index])}"></div><h2 id="detail-title" tabindex="-1">${esc(p[lang][0])}</h2><p>${esc(p[lang][2])}</p>${consult()}${support}${tools}<section class="related"><h3>${t('related')}</h3><div class="related-grid">${COPY.mapping[id].map(workCardHTML).join('')}</div></section>${steps}${consult()}`;
  }else if(type==='case'){
   const w=COPY.works[id];content=`${parentService?`<button class="detail-back" data-back-service>${lang==='th'?'กลับไปยังบริการ':'Back to service'}</button>`:''}<div class="work-image"${detailMedia[id]?` style="aspect-ratio:${detailMedia[id].ratio}${detailMedia[id].ratio<1.8?';max-height:none':''}"`:''}>${imageHTML(id,true)}</div><div class="work-brand">${esc(w.title)}</div><h2 id="detail-title" tabindex="-1">${esc(w.headline[lang])}</h2>${w.detail[lang].intro?`<p>${esc(w.detail[lang].intro)}</p>`:''}<div class="case-detail-copy">${w.detail[lang].sections.map(s=>`<section><h3>${esc(s.title)}</h3>${paragraphs(s.body.split(/\n\n+/))}</section>`).join('')}</div><div class="tags">${w.tags[lang].map(x=>`<span>${esc(x)}</span>`).join('')}</div><div class="detail-cta"><button class="button send" data-contact-open aria-haspopup="dialog" aria-controls="contact-panel">${t('free')}</button></div>`;
- }else{content=`<h2 id="detail-title" tabindex="-1">${t('privacy')}</h2><p>${esc(COPY.privacyShort[lang])}</p><p>${t('privacyPending')}</p>`;}
+ }else{content=privacyHTML();}
  $('#detail-content').innerHTML=content;
  closeContact();
  $('#detail').append($('#contact-dock'));
@@ -189,5 +189,34 @@ document.addEventListener('click',e=>{
 });
 $('#copy-context').onclick=async()=>{try{await navigator.clipboard.writeText($('#contact-context').textContent);$('#copy-status').textContent=t('copied');}catch{$('#copy-status').textContent=t('copyFailed');}};
 render();startFilms();updateScroll();
-function trackLead(method){const p={method};window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:'generate_lead'},p));if(typeof gtag==='function')gtag('event','generate_lead',p);}
+function trackLead(method){if(window.wakuConsent!=='granted')return;const p={method};window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:'generate_lead'},p));if(typeof gtag==='function')gtag('event','generate_lead',p);}
 document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a)return;const h=a.href||'';if(h.includes('line.me'))trackLead('line');else if(h.includes('m.me'))trackLead('messenger');else if(h.startsWith('mailto:'))trackLead('email_link');});
+
+function privacyHTML(){
+ const n=COPY.privacyFull[lang];
+ const list=x=>`<ul>${x.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>`;
+ const para=x=>x.map(i=>`<p>${esc(i).replace(/\n/g,'<br>')}</p>`).join('');
+ const table=x=>`<div class="legal-table"><table><thead><tr>${x.head.map(i=>`<th>${esc(i)}</th>`).join('')}</tr></thead><tbody>${x.rows.map(r=>`<tr>${r.map(i=>`<td>${esc(i)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+ const sections=n.sections.map(s=>`<section class="legal-section"><h3>${esc(s.h)}</h3>${s.lead?para(s.lead):''}${s.ul?list(s.ul):''}${s.table?table(s.table):''}${s.p?para(s.p):''}</section>`).join('');
+ return `<div class="legal"><h2 id="detail-title" tabindex="-1">${esc(n.title)}</h2><p class="legal-date">${esc(n.updated)}</p><p>${esc(n.intro)}</p>${sections}</div>`;
+}
+const GA_ID='G-BSV33ZNV2W';
+function clearAnalyticsCookies(){
+ const host=location.hostname.split('.'),past='=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+ document.cookie.split(';').map(c=>c.split('=')[0].trim()).filter(n=>n==='_ga'||n.startsWith('_ga_')).forEach(n=>{
+  document.cookie=n+past;
+  for(let i=0;i<host.length-1;i++)document.cookie=n+past+';domain=.'+host.slice(i).join('.');
+ });
+}
+function showCookieBanner(){const b=$('#cookie-banner');b.hidden=false;}
+function setConsent(value){
+ try{localStorage.setItem('waku-consent',value);}catch(e){}
+ window.wakuConsent=value;
+ if(value==='granted'){window.wakuLoadGA&&window.wakuLoadGA();}
+ else{window['ga-disable-'+GA_ID]=true;clearAnalyticsCookies();}
+ $('#cookie-banner').hidden=true;
+}
+$('#cookie-accept').addEventListener('click',()=>setConsent('granted'));
+$('#cookie-reject').addEventListener('click',()=>setConsent('denied'));
+$('.cookie-settings').addEventListener('click',showCookieBanner);
+if(window.wakuConsent!=='granted'&&window.wakuConsent!=='denied')showCookieBanner();
