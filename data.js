@@ -1069,13 +1069,12 @@ window.COPY = {
         {
           "h": "2. ข้อมูลที่เราเก็บ",
           "lead": [
-            "เราเก็บข้อมูลเท่าที่จำเป็น แบ่งเป็น 4 กลุ่ม"
+            "เราเก็บข้อมูลเท่าที่จำเป็น แบ่งเป็น 3 กลุ่ม"
           ],
           "ul": [
             "ข้อมูลที่คุณส่งให้เรา: ชื่อ (ถ้าระบุ) อีเมล ข้อความหรือรายละเอียดสินค้า/เรื่องที่ต้องการปรึกษา และหัวข้อบริการที่คุณเลือก เมื่อคุณติดต่อทางอีเมล LINE หรือ Messenger ปุ่มส่งในแบบฟอร์มของเว็บไซต์นี้จะเปิดแอปอีเมลของคุณเพื่อให้คุณตรวจและส่งเอง เว็บไซต์ไม่บันทึกข้อความในแบบฟอร์มไว้บนเซิร์ฟเวอร์ของเรา",
             "ข้อมูลการใช้งานเว็บไซต์ (เฉพาะเมื่อคุณยินยอมคุกกี้): ผ่าน Google Analytics 4 ได้แก่ รหัสสุ่มที่ระบุเบราว์เซอร์ หน้าที่เข้าชม เวลาที่ใช้ ประเภทอุปกรณ์ เบราว์เซอร์ ภาษา ตำแหน่งโดยประมาณระดับเมือง แหล่งที่มาของการเข้าชม และการคลิกปุ่มติดต่อ (LINE, Messenger, อีเมล)",
-            "ข้อมูลทางเทคนิคของเซิร์ฟเวอร์: หมายเลขไอพี (IP address) วันเวลา และหน้าที่ร้องขอ ซึ่งผู้ให้บริการโฮสติ้งบันทึกโดยอัตโนมัติเมื่อมีการเข้าเว็บไซต์",
-            "ฟอนต์จาก Google Fonts: เมื่อเปิดหน้าเว็บ เบราว์เซอร์ของคุณขอไฟล์ฟอนต์จากเซิร์ฟเวอร์ของ Google ทำให้ Google ได้รับหมายเลขไอพีของคุณ"
+            "ข้อมูลทางเทคนิคของเซิร์ฟเวอร์: หมายเลขไอพี (IP address) วันเวลา และหน้าที่ร้องขอ ซึ่งผู้ให้บริการโฮสติ้งบันทึกโดยอัตโนมัติเมื่อมีการเข้าเว็บไซต์"
           ]
         },
         {
@@ -1131,7 +1130,7 @@ window.COPY = {
         {
           "h": "5. การเปิดเผยและการส่งข้อมูลไปต่างประเทศ",
           "p": [
-            "เราเปิดเผยข้อมูลเท่าที่จำเป็นให้ผู้ให้บริการที่ช่วยเราดำเนินงาน ได้แก่ Google (Analytics และ Fonts) LINE (เมื่อคุณติดต่อผ่าน LINE) Meta (เมื่อคุณติดต่อผ่าน Messenger) และผู้ให้บริการโฮสติ้งของเว็บไซต์ ผู้ให้บริการบางรายประมวลผลข้อมูลบนเซิร์ฟเวอร์นอกประเทศไทย เราจะดูแลให้มีมาตรการคุ้มครองที่เหมาะสมตามที่กฎหมายกำหนด การใช้ LINE และ Messenger อยู่ภายใต้นโยบายความเป็นส่วนตัวของผู้ให้บริการนั้น"
+            "เราเปิดเผยข้อมูลเท่าที่จำเป็นให้ผู้ให้บริการที่ช่วยเราดำเนินงาน ได้แก่ Google (Analytics) LINE (เมื่อคุณติดต่อผ่าน LINE) Meta (เมื่อคุณติดต่อผ่าน Messenger) และผู้ให้บริการโฮสติ้งของเว็บไซต์ ผู้ให้บริการบางรายประมวลผลข้อมูลบนเซิร์ฟเวอร์นอกประเทศไทย เราจะดูแลให้มีมาตรการคุ้มครองที่เหมาะสมตามที่กฎหมายกำหนด การใช้ LINE และ Messenger อยู่ภายใต้นโยบายความเป็นส่วนตัวของผู้ให้บริการนั้น"
           ]
         },
         {
@@ -1202,13 +1201,12 @@ window.COPY = {
         {
           "h": "2. Data we collect",
           "lead": [
-            "We collect only what we need, in four groups."
+            "We collect only what we need, in three groups."
           ],
           "ul": [
             "Information you send us: your name (optional), email address, message or product details, and the service topics you select, when you contact us by email, LINE or Messenger. The send button on this website's form opens your own email app so you can review and send the message yourself; the website does not store form text on our servers.",
             "Website usage data (only if you accept cookies): through Google Analytics 4 — a random identifier for your browser, pages viewed, time spent, device type, browser, language, approximate city-level location, traffic source, and clicks on contact buttons (LINE, Messenger, email).",
-            "Technical server data: your IP address, date and time, and requested pages, recorded automatically by our hosting provider when you visit the website.",
-            "Google Fonts: when a page opens, your browser requests font files from Google's servers, so Google receives your IP address."
+            "Technical server data: your IP address, date and time, and requested pages, recorded automatically by our hosting provider when you visit the website."
           ]
         },
         {
@@ -1264,7 +1262,7 @@ window.COPY = {
         {
           "h": "5. Disclosure and transfers abroad",
           "p": [
-            "We disclose data only as needed to service providers that help us operate: Google (Analytics and Fonts), LINE (if you contact us through LINE), Meta (if you contact us through Messenger), and the website's hosting provider. Some providers process data on servers outside Thailand. We make sure appropriate safeguards are in place as required by law. Use of LINE and Messenger is governed by those providers' own privacy policies."
+            "We disclose data only as needed to service providers that help us operate: Google (Analytics), LINE (if you contact us through LINE), Meta (if you contact us through Messenger), and the website's hosting provider. Some providers process data on servers outside Thailand. We make sure appropriate safeguards are in place as required by law. Use of LINE and Messenger is governed by those providers' own privacy policies."
           ]
         },
         {

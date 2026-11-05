@@ -43,17 +43,33 @@ let openingTimers=[], heroVisible=true, entranceDone=false;
 // Each file contains the complete rotating sequence. Playback never seeks to
 // arbitrary offsets, so it also works on preview servers without byte ranges.
 const filmPlayers=$$('.film video').map((video,index)=>({video,index,pending:null}));
+let filmStarted=false, filmUserPaused=false;
+const filmBtn=$('#film-play');
+function updateFilmButton(){
+ const on=lite.matches&&!reduce.matches, playing=filmStarted&&!filmUserPaused;
+ filmBtn.hidden=!on;
+ filmBtn.classList.toggle('is-mini',on&&filmStarted);
+ filmBtn.classList.toggle('is-pause',playing);
+ filmBtn.lastElementChild.textContent=t(playing?'pause':'play');
+}
+filmBtn.addEventListener('click',()=>{
+ if(!filmStarted){filmStarted=true;filmUserPaused=false;}else filmUserPaused=!filmUserPaused;
+ updateFilmButton();playVisibleFilms();
+});
+lite.addEventListener('change',()=>{updateFilmButton();playVisibleFilms();});
+new MutationObserver(updateFilmButton).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 function playVisibleFilms(){
  filmPlayers.forEach(player=>{
   const {video:v,index:i}=player;
-  const eligible=!paused&&(!small.matches||i===0);
-  if(eligible&&!v.getAttribute('src')){v.muted=true;v.defaultMuted=true;v.preload='auto';v.src=filmSources[i];v.load();}
+  const eligible=!paused&&!(lite.matches&&(!filmStarted||filmUserPaused))&&(!small.matches||i===0);
+  if(eligible&&!v.getAttribute('src')){v.muted=true;v.defaultMuted=true;v.preload='auto';v.src=(lite.matches?filmSourcesSmall:filmSources)[i];v.load();}
   if(!eligible||document.hidden||!heroVisible||!entranceDone){v.pause();return;}
   if(!v.paused||player.pending)return;
   player.pending=v.play().catch(()=>v.closest('.film').classList.remove('playing')).finally(()=>{player.pending=null;});
  });
 }
 function prepareFilms(){
+ updateFilmButton();
  filmPlayers.forEach(({video:v,index:i})=>{
   v.addEventListener('playing',()=>{v.closest('.film').classList.add('playing');v.removeAttribute('poster');});
   v.addEventListener('error',()=>v.closest('.film').classList.remove('playing'));

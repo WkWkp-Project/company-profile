@@ -124,3 +124,17 @@
 .legal-table th,.legal-table td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #e3dacd}
 .legal-table th{background:#e3dacd;font-weight:600}
 .legal-table tr:last-child td{border-bottom:0}
+
+/* Hero video on tablets / phones: poster first, tap to play (small files) */
+.film-play{position:absolute;z-index:6;left:50%;top:34%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:12px 24px 12px 18px;border:1px solid #ffffff55;border-radius:999px;background:rgba(18,18,18,.40);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;font:600 15px var(--font);text-shadow:0 1px 3px #0008;cursor:pointer}
+.film-play[hidden]{display:none}
+.film-play-icon{flex:none;width:0;height:0;border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent}
+.film-play.is-pause .film-play-icon{width:12px;height:16px;border:0;border-left:4px solid #fff;border-right:4px solid #fff}
+.film-play.is-mini{top:calc(var(--header-h) + 14px);left:auto;right:var(--gutter);transform:none;min-height:40px;padding:8px 16px 8px 12px;font-size:13px}
+.film-play:focus-visible{outline:3px solid #c5798e;outline-offset:3px}
+
+/* Email fallbacks */
+button.copy-email{padding:0;border:0;background:none;color:inherit;font:inherit;text-align:inherit;cursor:pointer}
+#email-copy-status{flex-basis:100%;min-height:1.4em;font-size:13px;opacity:.85}
+.mail-help{display:inline}
+.mail-help button,.mail-help a{padding:0;border:0;background:none;color:inherit;font:inherit;text-decoration:underline;cursor:pointer}
